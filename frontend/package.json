@@ -1,0 +1,12 @@
+{
+  "name": "metodo-frontend",
+  "version": "1.0.0",
+  "description": "Frontend para Metodo - Análisis de Comedia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

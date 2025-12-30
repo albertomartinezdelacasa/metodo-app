@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo - Análisis de Comedia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Metodo</h1>
+                <span>Análisis de comedia</span>
+            </div>
+
+            <nav class="nav-section">
+                <div class="nav-title">Principal</div>
+                <a class="nav-item active" data-view="analyze">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20V10M18 20V4M6 20v-4"/>
+                    </svg>
+                    Analizar
+                </a>
+                <a class="nav-item" data-view="entries">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    Mis Análisis
+                </a>
+                <a class="nav-item" data-view="write">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    Escribir
+                </a>
+            </nav>
+
+            <nav class="nav-section">
+                <div class="nav-title">Catálogo</div>
+                <a class="nav-item" data-view="tags">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                    </svg>
+                    Etiquetas
+                </a>
+                <a class="nav-item" data-view="techniques">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                    Técnicas
+                </a>
+                <a class="nav-item" data-view="comics">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    Cómicos
+                </a>
+            </nav>
+
+            <nav class="nav-section nav-bottom">
+                <a class="nav-item" data-view="settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Configuración
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+            <!-- Header -->
+            <header class="header">
+                <h2 class="header-title">Nuevo Análisis</h2>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="btnCancel">Cancelar</button>
+                    <button class="btn btn-primary" id="btnSave">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Guardar
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content-wrapper">
+                <div class="content">
+                    <!-- View: Analyze -->
+                    <div id="view-analyze" class="view active">
+                        <!-- Steps -->
+                        <div class="steps">
+                            <div class="step completed" data-step="1">
+                                <div class="step-num">✓</div>
+                                <span class="step-label">Chiste</span>
+                            </div>
+                            <div class="step-line"></div>
+                            <div class="step active" data-step="2">
+                                <div class="step-num">2</div>
+                                <span class="step-label">Premisa</span>
+                            </div>
+                            <div class="step-line"></div>
+                            <div class="step" data-step="3">
+                                <div class="step-num">3</div>
+                                <span class="step-label">Ruptura</span>
+                            </div>
+                            <div class="step-line"></div>
+                            <div class="step" data-step="4">
+                                <div class="step-num">4</div>
+                                <span class="step-label">Remate</span>
+                            </div>
+                        </div>
+
+                        <!-- Joke Input Card -->
+                        <div class="card" id="card-joke">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <span class="badge badge-neutral">Chiste</span>
+                                    Texto del chiste
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <textarea id="jokeText" class="textarea" placeholder="Escribe o pega el chiste aquí..."></textarea>
+                                <div class="meta-row">
+                                    <div class="input-group">
+                                        <label>Cómico</label>
+                                        <input type="text" id="jokeComic" class="input" placeholder="Nombre del cómico">
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Especial/Show</label>
+                                        <input type="text" id="jokeShow" class="input" placeholder="Nombre del especial">
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Año</label>
+                                        <input type="number" id="jokeYear" class="input" placeholder="2024">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Premisa Card -->
+                        <div class="card" id="card-premisa">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <span class="badge badge-premisa">Premisa</span>
+                                    Análisis de la premisa
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <!-- Disección -->
+                                <div class="subsection">
+                                    <h4 class="subsection-title">Disección del concepto</h4>
+                                    <div class="diseccion-box">
+                                        <div class="input-group">
+                                            <label>Concepto principal</label>
+                                            <input type="text" id="concepto" class="input" placeholder="¿Qué concepto se analiza?">
+                                        </div>
+                                        <div class="diseccion-items" id="diseccionItems">
+                                            <div class="diseccion-item">
+                                                <input type="text" class="input input-sm" placeholder="Característica (ej: Tono)">
+                                                <input type="text" class="input" placeholder="Valor (ej: Negativo)">
+                                                <button class="btn-icon btn-remove">×</button>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-ghost" id="addDiseccion">+ Añadir característica</button>
+                                    </div>
+                                </div>
+
+                                <!-- Elemento mecánico -->
+                                <div class="subsection">
+                                    <h4 class="subsection-title">Elemento mecánico</h4>
+                                    <input type="text" id="elementoMecanico" class="input" placeholder="Lo que siempre/nunca se asume sobre el concepto...">
+                                    <p class="hint">Busca palabras como "siempre" o "nunca" que indican algo asumido</p>
+                                </div>
+
+                                <!-- Estructura premisa -->
+                                <div class="subsection">
+                                    <h4 class="subsection-title">Estructura de premisa</h4>
+                                    <div class="technique-selector">
+                                        <div class="technique-option" data-value="pregunta-reflexiva">
+                                            <strong>Pregunta reflexiva</strong>
+                                            <span>¿Por qué...? ¿Cómo es que...?</span>
+                                        </div>
+                                        <div class="technique-option" data-value="observacion">
+                                            <strong>Observación</strong>
+                                            <span>He notado que... Es curioso que...</span>
+                                        </div>
+                                        <div class="technique-option" data-value="afirmacion">
+                                            <strong>Afirmación</strong>
+                                            <span>Declaración directa sobre el tema</span>
+                                        </div>
+                                        <div class="technique-option" data-value="otro">
+                                            <strong>Otra</strong>
+                                            <span>Especificar manualmente</span>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="estructuraPremisa" value="">
+                                </div>
+
+                                <!-- Tags -->
+                                <div class="tags-section">
+                                    <span class="tag selected">pregunta-reflexiva</span>
+                                    <span class="tag selected">elemento-mecanico</span>
+                                    <span class="tag add-tag">+ Añadir</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ruptura Card -->
+                        <div class="card" id="card-ruptura">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <span class="badge badge-ruptura">Ruptura</span>
+                                    Técnica de ruptura
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="subsection">
+                                    <h4 class="subsection-title">¿Qué técnica genera la realidad absurda?</h4>
+                                    <div class="technique-selector">
+                                        <div class="technique-option" data-value="inversion-polar">
+                                            <strong>Inversión polar</strong>
+                                            <span>Invierte una característica del concepto</span>
+                                        </div>
+                                        <div class="technique-option" data-value="personificacion">
+                                            <strong>Personificación</strong>
+                                            <span>Da características humanas a objetos</span>
+                                        </div>
+                                        <div class="technique-option" data-value="literalizacion">
+                                            <strong>Literalización</strong>
+                                            <span>Toma expresiones al pie de la letra</span>
+                                        </div>
+                                        <div class="technique-option" data-value="exageracion">
+                                            <strong>Exageración</strong>
+                                            <span>Amplifica una característica al extremo</span>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="tecnicaRuptura" value="">
+                                </div>
+
+                                <div class="subsection">
+                                    <h4 class="subsection-title">¿Qué característica se altera?</h4>
+                                    <input type="text" id="caracteristicaAlterada" class="input" placeholder="Ej: El tono (de negativo a positivo)">
+                                </div>
+
+                                <!-- AI Suggestion -->
+                                <div class="ai-box" id="aiSuggestionRuptura">
+                                    <div class="ai-header">
+                                        <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                        </svg>
+                                        <span>Sugerencia IA</span>
+                                    </div>
+                                    <p class="ai-content">Analizando el chiste...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Remate Card -->
+                        <div class="card" id="card-remate">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <span class="badge badge-remate">Remate</span>
+                                    Estructura del remate
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="subsection">
+                                    <h4 class="subsection-title">Técnica de justificación</h4>
+                                    <div class="technique-selector">
+                                        <div class="technique-option" data-value="escenificacion">
+                                            <strong>Escenificación</strong>
+                                            <span>Crea situaciones lógicas dentro de la realidad absurda</span>
+                                        </div>
+                                        <div class="technique-option" data-value="callback">
+                                            <strong>Callback</strong>
+                                            <span>Referencia a algo mencionado antes</span>
+                                        </div>
+                                        <div class="technique-option" data-value="escalada">
+                                            <strong>Escalada</strong>
+                                            <span>Cada ejemplo es más extremo que el anterior</span>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="tecnicaRemate" value="">
+                                </div>
+
+                                <div class="subsection">
+                                    <h4 class="subsection-title">Situaciones / Ejemplos</h4>
+                                    <div class="situations-list" id="situationsList">
+                                        <div class="situation-item">
+                                            <span class="situation-num">1</span>
+                                            <input type="text" class="input" placeholder="Primera situación del remate...">
+                                            <button class="btn-icon btn-remove">×</button>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-ghost" id="addSituation">+ Añadir situación</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="actions-row">
+                            <button class="btn btn-secondary" id="btnPrev">← Anterior</button>
+                            <button class="btn btn-primary" id="btnNext">Siguiente →</button>
+                        </div>
+                    </div>
+
+                    <!-- View: Entries List -->
+                    <div id="view-entries" class="view">
+                        <div class="entries-header">
+                            <input type="text" class="input search-input" placeholder="Buscar análisis..." id="searchEntries">
+                            <select class="input select-filter" id="filterType">
+                                <option value="">Todos</option>
+                                <option value="Análisis">Análisis</option>
+                                <option value="Nota">Nota</option>
+                            </select>
+                        </div>
+                        <div class="entries-list" id="entriesList">
+                            <!-- Se llena dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catalog Panel -->
+                <aside class="catalog-panel" id="catalogPanel">
+                    <h3 class="catalog-title">Catálogo</h3>
+
+                    <div class="catalog-section">
+                        <div class="catalog-section-title">Técnicas de Ruptura</div>
+                        <div class="catalog-item" data-technique="inversion-polar">
+                            <span class="catalog-item-name">Inversión polar</span>
+                            <span class="catalog-item-count">3</span>
+                        </div>
+                        <div class="catalog-item" data-technique="personificacion">
+                            <span class="catalog-item-name">Personificación</span>
+                            <span class="catalog-item-count">2</span>
+                        </div>
+                        <div class="catalog-item" data-technique="literalizacion">
+                            <span class="catalog-item-name">Literalización</span>
+                            <span class="catalog-item-count">1</span>
+                        </div>
+                    </div>
+
+                    <div class="catalog-section">
+                        <div class="catalog-section-title">Estructuras de Remate</div>
+                        <div class="catalog-item" data-technique="escenificacion">
+                            <span class="catalog-item-name">Escenificación</span>
+                            <span class="catalog-item-count">2</span>
+                        </div>
+                        <div class="catalog-item" data-technique="callback">
+                            <span class="catalog-item-name">Callback</span>
+                            <span class="catalog-item-count">0</span>
+                        </div>
+                    </div>
+
+                    <div class="catalog-section">
+                        <div class="catalog-section-title">Formas de Diseccionar</div>
+                        <div class="catalog-item">
+                            <span class="catalog-item-name">Pregunta de tono</span>
+                            <span class="catalog-item-count">1</span>
+                        </div>
+                        <div class="catalog-item">
+                            <span class="catalog-item-name">Siempre/Nunca</span>
+                            <span class="catalog-item-count">1</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
